@@ -1,0 +1,1 @@
+mongo --ssl --host docdb-demo.cluster-cgdued2pbbld.us-west-2.docdb.amazonaws.com:27017 --sslCAFile rds-combined-ca-bundle.pem --username myuser --password <REPLACE_ME_WITH_YOUR_PASSWORD>

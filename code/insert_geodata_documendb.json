@@ -1,0 +1,34 @@
+
+
+db.airports.createIndex({location:"2dsphere"})
+
+db.airports.insert(
+        {
+            city: “New York“,
+            location: {type: "Point",coordinates: [1, 2]}
+        });
+db.airports.insert(        
+        {
+            city: "New Jersey",
+            location: {type: "Point",coordinates: [30, 40]}
+        });
+db.airports.insert(        
+        {
+            city: "Washington DC",
+            location: {type: "Point",coordinates: [5, 6]}
+        });
+db.airports.insert(         
+        {
+            city: "Baltimore",
+            location: {type: "Point",coordinates: [75, 80]}
+        });
+db.airports.insert(
+        {         
+            city: "Los Angeles",
+            location: {type: "Point",coordinates: [9, 10]}
+        });
+db.airports.insert(                              
+        {
+            city: "San Francisco",
+            location: {type: "Point",coordinates: [11, 12]}
+        });
