@@ -116,11 +116,54 @@ And as expected the query returns the two nearest points to our reference point 
 
 The geometry calculations capability of queries run against geospatial data in GeoJSON coordinates could be applied to many use cases such as finding the nearest restaurants, cinemas, schools, hotels, etc. to a a given location, or the distance between two major landmarks.
 
+## Connecting to DocumentDB and querying geospatial data using a program
+
+The above process could also be done programmatically, that is by using a program to connect to Amazon DocumentDB, inserting and retrieving GeoJSON objects.
+
+We can use the following node.js code to perform these tasks programmatically:
+
+	var MongoClient = require('mongodb').MongoClient
+	
+	//Create a MongoDB client, open a connection to DocDB
+	
+	
+	var client = MongoClient.connect(
+	'mongodb://<insertYourUser>:<insertYourPassword>@docdb-demo.cgdued2pbbld.us-west-2.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&retryWrites=false',
+	{
+	  tlsCAFile: `rds-combined-ca-bundle` //Specify the DocDB; cert
+	},
+	function(err, client) {
+	    if(err)
+	        throw err;
+	
+	    //Specify the database to be used
+	    db = client.db('airports');
+	
+	    //Specify the collection to be used
+	    col = db.collection('airports');
+	
+	    //Insert a single document
+	    col.insertOne({ city: "Las Vegas", location: {type: "Point",coordinates: [-10, 16]}, function(err, result){
+	
+	      //Find the document that was previously written
+	      col.findOne(city: "Las Vegas", location: {type: "Point",coordinates: [-10, 16]}, function(err, result){
+	
+	        //Print the result to the screen
+	        console.log(result);
+	
+	        //Close the connection
+	        client.close()
+	      });
+	   });
+	});
+
 
 ## Conclusion
 In this demo, we demonstrated how it is now possible to store, query and index geospatial data in Amazon DocumentDB (with MongoDB compatibility). Using a simple example with some dummy data in the format of GeoJSON coordinates [longitude, latitude], we showed how to run proximity query on data stored on DocumentDB using MongoDB API `$nearSphere`
 
 More information on querying geospatial data with Amazon Document DB can be found from our [online documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/geospatial.html#w2aac37c11b9).
+
+Please remember to clean up your AWS enviroment and free up all resources your created for this demo!
 
 ## Security
 
