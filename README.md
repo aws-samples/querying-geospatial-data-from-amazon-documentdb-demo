@@ -1,6 +1,7 @@
 ## Introduction
 
-In this demo, we will show how to store, index and query geospatial data in Amazon DocumentDB (with MongoDB Compatibility). This capability allows developers to build applications that can calculate geometries on a sphere by creating 2dsphere Indexes on Amazon DocumentDB, and also perform proximity querying on data stored on Amazon DocumentDB using MongoDB API's such as `$nearSphere`, `$geoNear`, `$minDistance`, `$maxDistance`
+In this demo, we will show how to store, index and query geospatial data in Amazon DocumentDB (with MongoDB Compatibility). This capability allows developers to build applications that can calculate geometries on a sphere by creating 2dsphere Indexes on Amazon DocumentDB, and also perform proximity querying on data stored on Amazon DocumentDB using MongoDB API's such as `$nearSphere`, `$geoNear`, `$minDistance`, `$maxDistance`.
+This capability was announced in October in [What's New](https://aws.amazon.com/about-aws/whats-new/2021/10/amazon-documentdb-adds-geospatial-capabilities/) on AWS portal.
 
 ## Prerequisites
 
